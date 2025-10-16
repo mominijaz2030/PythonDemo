@@ -1,86 +1,52 @@
-Functional Specification Document (FSD)
+# 🧩 Functional Specification Document (FSD)
 
-Project: PythonDemo (Django MVP) - Objective Application
+### 🧱 Project: PythonDemo (Django MVP) — Objective Application  
+**Repository:** [https://github.com/mominijaz2030/PythonDemo](https://github.com/mominijaz2030/PythonDemo)
 
-Repository: https://github.com/mominijaz2030/PythonDemo
+---
 
-Table of Contents
+## 📚 Table of Contents
+1. [Overview & Scope](#overview--scope)
+2. [Actors & Roles](#actors--roles)
+3. [Data Model (summary)](#data-model-summary)
+4. [Screen 1 — Landing / Home](#screen-1--landing--home)
+5. [Screen 2 — User Registration / Login](#screen-2--user-registration--login)
+6. [Screen 3 — To-Do List Dashboard](#screen-3--to-do-list-dashboard)
+7. [Screen 4 — Create / Edit Task Modal](#screen-4--create--edit-task-modal)
+8. [Screen 5 — Task Filters & Bulk Actions](#screen-5--task-filters--bulk-actions)
+9. [Screen 6 — User Profile / Settings](#screen-6--user-profile--settings)
+10. [Screen 7 — Static Pages / Objectives](#screen-7--static-pages--objectives)
+11. [Non-functional Requirements](#nonfunctional-requirements)
+12. [API / URL Endpoints](#api--url-endpoints)
+13. [Acceptance Criteria & Test Cases](#acceptance-criteria--test-cases)
 
-Overview & Scope
-Actors & Roles
-Data Model (summary)
-Screen 1 — Landing / Home (App Shell)
-Screen 2 — User Registration / Login
-Screen 3 — To‑Do List Dashboard
-Screen 4 — Create / Edit Task Modal
-Screen 5 — Task Filters & Bulk Actions
-Screen 6 — User Profile / Settings
-Screen 7 — Static Pages / About / Objectives
-Non‑functional Requirements
-API / URL Endpoints
-Acceptance Criteria & Test Cases
+---
 
--------------------------------------------xxxxxxxx---------------------xxxxxxxx.................
+## 🧭 Overview & Scope
+This repository is an MVP containing **Django apps**: `todolistapp`, `usersapp`, templates, and static assets.  
+The scope includes:
+- Registration/Login  
+- Task CRUD (Create, Read, Update, Delete)  
+- Task listing, filtering  
+- Basic user settings/profile management  
 
-1. Overview & Scope
-This repo is an MVP containing Django apps: todolistapp, usersapp, templates, and static assets. 
-The scope of this FSD is the core flows for a simple authenticated to‑do application with user management: registration/login, CRUD for tasks, task listing, filtering, and basic settings.
+---
 
-2. Actors & Roles
-Anonymous Visitor — can view landing/about and register/login.
-Authenticated User — can create, update, delete, mark done/undone, filter tasks, manage profile.
-Admin — Django admin privileges for user/task management (out of scope for UI sketches but supported by Django admin).
+## 👥 Actors & Roles
+| Role | Description |
+|------|--------------|
+| **Anonymous Visitor** | Can view landing/about and register/login. |
+| **Authenticated User** | Can create, update, delete, mark done/undone, filter tasks, manage profile. |
+| **Admin** | Django admin privileges for user/task management (out of scope for UI). |
 
-3. Data Model (summary)
-TaskList model (todolistapp)
-    task: CharField(max_length=500)
-    done: BooleanField(default=False)
-User — Django built-in auth.User
+---
 
-Picture 1 — Landing / Home (App Shell)
-Display app name and short description. - Show navigation bar linking to: Home, Objectives, To‑Do (dashboard), Login, Register. - If user is authenticated, show username + Logout instead of Login/Register.
-
-Picture 2 — User Registration / Login
-Registration validates required fields and password confirmation. - Login authenticates and sets session. - CSRF protection enabled. - Passwords stored via Django’s secure hashing.
-
-Picture 3 — To‑Do List Dashboard (Main Screen)
-Show list of tasks for the logged in user, ordered by most recent or incomplete first. - Each task shows: text, done indicator, edit button, delete button, created date. - Provide Add Task input at the top (inline form) or Add Task button that opens modal. - Success and error messages displayed via Django messages framework.
-
-Picture 4 — Create / Edit Task Modal
-Modal contains textarea/input for task and Save/Cancel buttons. - Editing pre-fills the current task text. - Support AJAX submission (optional) for smoother UX.
-
-Picture 5 — Task Filters & Bulk Actions
-Provide three filter states and a search input that filters by substring. - Allow selecting multiple tasks with checkboxes and performing bulk actions (Mark Done, Delete).
-
-Picture 6 — User Profile / Settings
-Profile update endpoints validate email uniqueness and proper formats. - Password change requires current password.
-
-Picture 7 — Static Pages / Objectives
-Render Objectives content as HTML pages accessible from navbar. - Serve static images from static/images/.
-
-Non‑functional Requirements
-•	Security: Use Django CSRF, authenticate views, protect user data.
-•	Performance: Page responses under 300ms for normal loads (local dev not required, but keep templates efficient).
-•	Accessibility: Forms labeled, focus management for modals, sufficient color contrast.
-•	Internationalization: Use Django translation hooks if needed.
-
-API / URL Endpoints (Suggested mapping)
-•	GET / — Landing page
-•	GET /objectives/ — Objectives documentation
-•	GET /login/, POST /login/
-•	GET /register/, POST /register/
-•	GET /tasks/ — Dashboard (requires auth)
-•	POST /tasks/add/ — Create task
-•	POST /tasks/<id>/toggle/ — Toggle done
-•	POST /tasks/<id>/edit/ — Update task
-•	POST /tasks/<id>/delete/ — Delete task
-•	POST /tasks/bulk/ — Bulk actions
-•	GET/POST /profile/ — Profile settings
-
-Acceptance Criteria & Sample Test Cases
-Add Task: - Given an authenticated user, when they submit a non-empty task, then task appears in list and DB.
-Toggle Done: - Given a task, when user toggles done, then DB done flips and UI updates.
-Auth: - Login with invalid credentials shows an error and prevents access to /tasks/.
-Delete task: - Selecting task and pressing delete shows confirmation and removes task.
+## 🧩 Data Model (summary)
+```python
+# TaskList model (todolistapp)
+class TaskList(models.Model):
+    task = models.CharField(max_length=500)
+    done = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # optional
 
 
