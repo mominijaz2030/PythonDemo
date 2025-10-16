@@ -1,9 +1,76 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{%block title%}
-  <title> Home </title>
-{%endblock title%}
+{% block title %}
+<title>Home | Objectives Application</title>
+{% endblock title %}
 
 {% block content %}
- <h1>{{message}}</h1>
+
+<!-- 🌟 Hero Section -->
+<section class="py-5 bg-light text-center hero-section position-relative">
+  <div class="container py-5">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-8">
+        <h1 class="display-4 fw-bold mb-3 text-primary">{{ message }}</h1>
+        <p class="lead text-muted mb-4">
+          Welcome to the <strong>Objectives Application</strong> — a user-based demo built on Django. 
+          Create, manage, and track your daily goals with ease and clarity.
+        </p>
+        <a href="{% url 'todolist' %}" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-sm">
+          🚀 Get Started
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✨ Features Preview -->
+<section class="py-5 bg-white text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-5 text-dark">Why You'll Love This App</h2>
+    <div class="row justify-content-center g-4">
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm p-4 h-100 feature-card">
+          <img src="{% static 'images/plan.png' %}" alt="Plan" class="img-fluid rounded mb-3" style="height: 180px; object-fit: cover;">
+          <h5 class="fw-bold text-primary">Plan Objectives</h5>
+          <p class="text-muted">Create structured, measurable goals tailored to your workflow.</p>
+        </div>
+      </div>
+
+<div class="col-md-4">
+        <div class="card border-0 shadow-sm p-4 h-100 feature-card">
+          <img src="{% static 'images/task.png' %}" alt="Achieve" class="img-fluid rounded mb-3" style="height: 180px; object-fit: cover;">
+          <h5 class="fw-bold text-primary">Achieve Results</h5>
+          <p class="text-muted">Gain insights on completed goals and celebrate your achievements.</p>
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm p-4 h-100 feature-card">
+          <img src="{% static 'images/objective.png' %}" alt="Progress" class="img-fluid rounded mb-3" style="height: 180px; object-fit: cover;">
+          <h5 class="fw-bold text-primary">Track Progress</h5>
+          <p class="text-muted">Monitor completion status in real-time and stay on top of your tasks.</p>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+<!-- 🌍 Call-to-Action Section -->
+<section class="py-5 text-center bg-primary text-light">
+  <div class="container py-4">
+    <h2 class="fw-bold mb-3">Start Setting Your Objectives Today</h2>
+    <p class="mb-4">
+      This product is created by a Software Engineer, Data Scientist and a Citizen Developer who develop multiple projects those can benefit the community and active learners.
+    </p>
+    <a href="{% url 'register' %}" class="btn btn-light btn-lg px-4 py-2 rounded-pill shadow-sm">
+      ✨  Momin Ijaz   ✨
+    </a>
+  </div>
+</section>
+
 {% endblock content %}

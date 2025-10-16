@@ -1,9 +1,107 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {%block title%}
   <title> About Us</title>
 {%endblock title%}
 
 {% block content %}
- <h1>{{message}}</h1>
+ <section class="py-5 text-center bg-light">
+  <div class="container">
+    <img src="{% static 'images/logo.jpg' %}" alt="Profile Photo" class="rounded-circle shadow mb-4" width="160" height="160">
+    <h1 class="fw-bold text-primary mb-3">Momin Ijaz</h1>
+    <p class="lead text-muted">Project Delivery Manager • Software Architect • Technology Consultant</p>
+  </div>
+</section>
+
+<!-- 💼 Professional Summary -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">Professional Summary</h2>
+    <p class="fs-5 text-muted text-center" style="max-width: 800px; margin: 0 auto;">
+      I bring <strong>18 years of experience</strong> delivering scalable enterprise systems 
+      across fintech, oil & gas, and corporate sectors. With a strong foundation in 
+      <strong>ASP.NET, Azure, Microservices, and DevOps</strong>, I specialize in 
+      solution delivery, architecture, and technical leadership — helping organizations 
+      achieve efficiency through innovation.
+    </p>
+  </div>
+</section>
+
+<!-- 🧠 Core Expertise -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold mb-5 text-center">Core Expertise</h2>
+    <div class="row text-center g-4">
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 h-100">
+          <i class="bi bi-diagram-3 text-primary fs-1 mb-3"></i>
+          <h5 class="fw-semibold">System Architecture</h5>
+          <p class="text-muted small">Designing secure, scalable enterprise architectures in .NET and cloud environments.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 h-100">
+          <i class="bi bi-cloud-check text-primary fs-1 mb-3"></i>
+          <h5 class="fw-semibold">Cloud & DevOps</h5>
+          <p class="text-muted small">Azure & AWS experience with CI/CD pipelines, Docker, and microservices deployment.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 h-100">
+          <i class="bi bi-bar-chart-line text-primary fs-1 mb-3"></i>
+          <h5 class="fw-semibold">Data & Analytics</h5>
+          <p class="text-muted small">BI dashboards, data pipelines, and reporting with SQL, Power BI, and Python.</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card border-0 shadow-sm p-4 h-100">
+          <i class="bi bi-people text-primary fs-1 mb-3"></i>
+          <h5 class="fw-semibold">Project Leadership</h5>
+          <p class="text-muted small">Leading agile delivery teams and managing multi-departmental technology initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🎓 Education -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <h2 class="fw-bold mb-4 text-center">Education</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <ul class="list-group list-group-flush text-start">
+          <li class="list-group-item">
+            <strong>MSc Data Science</strong> — Middlesex University, London, UK (2021–2023)
+          </li>
+          <li class="list-group-item">
+            <strong>BS Software Engineering</strong> — Foundation University Islamabad, PK (2002–2006)
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🏆 Certifications -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Certifications</h2>
+    <p class="text-muted">
+      PMP (PMI) • Microsoft Certified Professional • AWS Fundamentals •  
+      Big Data & Analytics (Duke) • ASP.NET Core & ReactJS (LinkedIn Learning)
+    </p>
+  </div>
+</section>
+
+<!-- 🌐 Contact CTA -->
+<section class="py-5 bg-primary text-light text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Let’s Connect</h2>
+    <p class="mb-4">Open to collaboration, architecture consulting, and technology partnerships.</p>
+    <a href="{% url 'contact' %}" class="btn btn-light btn-lg rounded-pill px-5">Contact Me</a>
+  </div>
+</section>
+
 {% endblock content %}
