@@ -2,6 +2,7 @@
 
 ### 🧱 Project: PythonDemo (Django MVP) — Objective Application  
 **Repository:** [https://github.com/mominijaz2030/PythonDemo](https://github.com/mominijaz2030/PythonDemo)
+**Live Demo:** [https://mominijaz2030.pythonanywhere.com/]
 
 ---
 
